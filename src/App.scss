@@ -140,7 +140,7 @@ $generic-bg: #db4c3f;
         grid-template-rows:1fr;
         grid-gap: 0;
         max-width: 922px;
-        margin: auto;
+        margin: 0 auto;
     }
 
     p, li {
@@ -190,5 +190,142 @@ $generic-bg: #db4c3f;
             }
 
         }
+    }
+}
+
+// sidebar
+
+.sidebar {
+    @include no-select();
+    position: fixed;
+    max-width: 266px;
+    height: calc(100vh);
+    background-color: #fafafa;
+    border-right: $generic-border;
+    padding-top: 74px;
+    overflow: hidden;
+
+    @include mq('900px') {
+        display: none;
+    }
+
+    li {
+        padding-left: 10px;
+        padding-right: 15px;
+
+        &:hover .sidebar__project-delete {
+            display: block;
+        }
+    }
+
+    &__project {
+        @include va('left');
+
+        padding: 5px 0;
+        cursor: pointer;
+    }
+
+    &__project-delete {
+        display: none;
+        margin-left: auto;
+
+        svg {
+            color: #cacaca;
+        }
+
+        &.active,
+        &:hover {
+            font-weight: 800;
+            background: #fff;
+        }
+
+        &:nth-child(1) {
+            .sidebar__dot {
+                color: #6accbc;
+            }
+        }
+        &:nth-child(2) {
+            .sidebar__dot {
+                color: #fad003;
+            }
+        }
+        &:nth-child(3) {
+            .sidebar__dot {
+                color: #ff8d85;
+            }
+        }
+        &:nth-child(4) {
+            .sidebar__dot {
+                color: #ff9952;
+            }
+        }
+        &:nth-child(5) {
+            .sidebar__dot {
+                color: #af38eb;
+            }
+        }
+    }
+
+    &__projects {
+        padding-left: 3px;
+    }
+
+    &__dot {
+        font-size: 1.95rem;
+        margin-right: 10px;
+    }
+
+    &__middle {
+        display: flex;
+        border-bottom: $generic-border;
+        padding-left: 10px;
+        margin: 20px 0;
+        cursor: pointer;
+
+        span {
+            color: #000;
+            margin-right: 10px;
+        }
+
+        span svg.hidden-projects {
+            transform: rotate(-90deg);
+        }
+
+        h2 {
+            font-size: 0.99rem;
+            font-weight: 800;
+            color: #333;
+            padding-bottom: 20px;
+            margin: 0;
+        }
+    }
+    &__generic { 
+
+        li {
+            display: flex;
+            font-size: 0.95rem;
+            line-height: 1rem;
+            color: #333;
+            padding: 10px 0 10px 10px;
+            list-style-type: none;
+            cursor: pointer;
+        }
+
+        li.active,
+        li:hover {
+            background-color: #fff;
+            font-weight: 800;
+        }
+
+        li span:first-of-type {
+            margin-right: 10px;
+
+            svg {
+                width: 18px;
+                height: 18px;
+                color: #555;
+            }
+        }
+
     }
 }
