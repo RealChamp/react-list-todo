@@ -27,7 +27,6 @@ export const Tasks = () => {
     }, [])
 
     return (
-      <div className="content">
         <div className="tasks" data-testid="tasks">
           <h2 data-testid="project-name">{projectName}</h2>
 
@@ -40,6 +39,5 @@ export const Tasks = () => {
             ))}
           </ul>
         </div>
-      </div>
     );
 }
