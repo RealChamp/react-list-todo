@@ -152,6 +152,7 @@ $generic-bg: #db4c3f;
         grid-area: 1/1;
         img {
             width: 24px;
+            cursor: pointer;
         }
     }
 
@@ -199,6 +200,7 @@ $generic-bg: #db4c3f;
     @include no-select();
     position: fixed;
     max-width: 266px;
+    width: 100%;
     height: calc(100vh);
     background-color: #fafafa;
     border-right: $generic-border;
@@ -223,6 +225,12 @@ $generic-bg: #db4c3f;
 
         padding: 5px 0;
         cursor: pointer;
+
+        &.active,
+        &:hover {
+            font-weight: 800;
+            background: #fff;
+        }
     }
 
     &__project-delete {
@@ -233,11 +241,6 @@ $generic-bg: #db4c3f;
             color: #cacaca;
         }
 
-        &.active,
-        &:hover {
-            font-weight: 800;
-            background: #fff;
-        }
 
         &:nth-child(1) {
             .sidebar__dot {
