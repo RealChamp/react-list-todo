@@ -1,8 +1,10 @@
-import React from 'react'
-import {FaPizzaSlice} from 'react-icons/fa'
+import React, { useState } from 'react'
+import {BiBulb} from 'react-icons/bi'
 
 
-export const Header = () => {
+export const Header = ({darkMode, setDarkMode}) => {
+  const [shouldShowMain, setShouldShowMain] = useState(false)
+  const [shouldQuickAddTask, setShouldQuickAddTask] = useState(false)
     return (
       <header className="header" data-testid="header">
         <nav>
@@ -12,8 +14,12 @@ export const Header = () => {
           <div className="settings">
             <ul>
               <li data-testid='quick-add-task-action' className='settings__add'>+</li>
-              <li data-testid='dark-mode-action' className='settings__darkmode'>
-                <FaPizzaSlice />
+              <li
+               data-testid='dark-mode-action' 
+               className='settings__darkmode'
+               onClick={()=> setDarkMode(!darkMode)}
+               >
+                <BiBulb />
               </li>
             </ul>
           </div>
