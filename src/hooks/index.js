@@ -24,8 +24,8 @@ export const useTasks = selectedProject => {
 
             unsubscribe = unsubscribe.onSnapshot(snapshot => {
                 const newTasks = snapshot.docs.map(task => ({
-                    id:task.id,
                     ...task.data(),
+                    id:task.id,
                 }))
                 setTasks(
                     selectedProject === 'NEXT_7'
@@ -39,7 +39,7 @@ export const useTasks = selectedProject => {
             })
 
             return () => unsubscribe()
-    }, [selectedProject])
+    }, [selectedProject]) // TODO Error with infinity rerender here
 
     return {tasks, archivedTasks}
 }
@@ -64,7 +64,7 @@ export const useProjects = () => {
             setProjects(allProjects)
         }
     })
-  }, [projects]);
+  }, []) // TODO Error with infinity rerender here
 
     return {projects, setProjects}
 }

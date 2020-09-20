@@ -8,6 +8,6 @@ import {
   SelectedProjectContext,
   SelectedProjectProvider,
   useSelectedProjectValue,
-} from './selected-project.js';
+} from './selected-project-context.js';
 
 export { ProjectsContext, ProjectsProvider, useProjectsValue,SelectedProjectContext, SelectedProjectProvider, useSelectedProjectValue };

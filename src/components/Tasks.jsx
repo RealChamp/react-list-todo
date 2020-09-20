@@ -10,21 +10,22 @@ export const Tasks = () => {
     const {projects} = useProjectsValue()
     const {tasks} = useTasks(selectedProject)
 
-    let projectName = ''
+    let projectName = '';
+    
 
     if (projects && selectedProject && !collatedTasksExist(selectedProject)) {
-        projectName = getTitle(projects, selectedProject).name
-        console.log(`project name1: ${projectName}`)
+        projectName = getTitle(projects, selectedProject)?.name
+        console.log('project name1', projectName) 
     }
 
     if (collatedTasksExist(selectedProject) && selectedProject) {
-        projectName = getCollatedTitle(collatedTasks, selectedProject).name
-        console.log(`project name2: ${projectName}`)
+        projectName = getCollatedTitle(collatedTasks, selectedProject)?.name
+        console.log('project name2', projectName)
     }
 
     useEffect(()=> {
         document.title = `${projectName}: Todoist`
-    }, [])
+    })
 
     return (
         <div className="tasks" data-testid="tasks">
