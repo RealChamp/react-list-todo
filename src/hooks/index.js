@@ -24,8 +24,8 @@ export const useTasks = selectedProject => {
 
             unsubscribe = unsubscribe.onSnapshot(snapshot => {
                 const newTasks = snapshot.docs.map(task => ({
-                    ...task.data(),
                     id:task.id,
+                    ...task.data(),
                 }))
                 setTasks(
                     selectedProject === 'NEXT_7'
@@ -39,7 +39,7 @@ export const useTasks = selectedProject => {
             })
 
             return () => unsubscribe()
-    }, [selectedProject]) // TODO Error with infinity rerender here
+    }, [selectedProject]) 
 
     return {tasks, archivedTasks}
 }
@@ -47,7 +47,6 @@ export const useTasks = selectedProject => {
 export const useProjects = () => {
   const [projects, setProjects] = useState([]);
 
-  useEffect(() => {
     firebase
     .firestore()
     .collection('projects')
@@ -64,7 +63,6 @@ export const useProjects = () => {
             setProjects(allProjects)
         }
     })
-  }, []) // TODO Error with infinity rerender here
 
     return {projects, setProjects}
 }

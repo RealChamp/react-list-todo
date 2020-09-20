@@ -438,3 +438,32 @@ $generic-bg: #db4c3f;
     }
   }
 }
+
+// app project
+
+.add-project {
+  padding-left: 13px;
+  padding-right: 20px;
+  margin-top: 20px;
+
+  &__input {
+    margin-bottom: 20px;
+  }
+
+  &__name {
+    width: 100%;
+    height: 35px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff !important;
+    padding: 0 10px;
+  }
+
+  &__submit {
+    @include btn(100px);
+  }
+
+  &__cancel {
+    @include cancel();
+  }
+}
