@@ -319,22 +319,21 @@ $generic-bg: #db4c3f;
 
     li span:first-of-type {
       margin-right: 10px;
-
     }
 
     li span svg {
-            width: 18px;
-            height: 18px;
+      width: 18px;
+      height: 18px;
     }
 
     li:nth-child(1) span svg {
-        color: #5297ff;
+      color: #5297ff;
     }
     li:nth-child(2) span svg {
-        color: #058527;
+      color: #058527;
     }
     li:nth-child(3) span svg {
-        color: #692fc2;
+      color: #692fc2;
     }
   }
 }
@@ -427,15 +426,142 @@ $generic-bg: #db4c3f;
     }
 
     .checkbox-holder .checkbox {
-        display: block;
-        width: 16px;
-        height: 16px;
-        color: #343434;
-        border: 1px solid gray;
-        border-color: gray;
-        border-radius: 16px;
-        cursor: pointer;
+      display: block;
+      width: 16px;
+      height: 16px;
+      color: #343434;
+      border: 1px solid gray;
+      border-color: gray;
+      border-radius: 16px;
+      cursor: pointer;
     }
+  }
+}
+
+// add task
+
+.add-task {
+  &__overlay {
+    background-color: rgba(102, 102, 102, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    z-index: 1000;
+    transition: opacity 250ms ease;
+  }
+
+  &__main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-color: #fff;
+    margin-top: 55px;
+    padding: 20px 30px;
+    transform: translate(-50%, -50%);
+    overflow: visible;
+
+    .header {
+      float: left;
+      font-size: 0.78rem;
+      margin-bottom: 20px;
+    }
+  }
+  &__cancel-x {
+    float: right;
+    font-size: 0.75rem;
+    font-weight: 800;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  &__main {
+    position: relative;
+  }
+
+  &__project, &__date {
+    float: right;
+    color: gray;
+    margin: 20px 10px;
+    cursor: pointer;
+  }
+
+  &__project {
+    margin-right: 0;
+  }
+
+  &__content {
+    width: 100%;
+    height: 35px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff !important;
+    padding: 0 10px;
+  }
+
+  &__cancel, &__submit {
+    @include no-select();
+  }
+
+  &__cancel {
+    @include cancel();
+  }
+
+  &__submit {
+    @include btn(90px);
+  }
+}
+
+.add-task__shallow, .add-project {
+  @include no-select();
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.add-task__plus,
+.add-project__plus {
+  font-size: 1.125rem;
+  color: #dd4b39;
+}
+
+.add-task__text,
+.add-project__text {
+  display: inline-block;
+  color: #545454;
+  font-size: 0.925rem;
+  margin-left: 15px;
+}
+
+// task date
+.task-date {
+  @include box-overlay();
+  background-color: #fff;
+  width: 200px;
+  right: 0;
+
+  &__list li {
+    @include task-item();
+
+    span:first-of-type {
+      margin-right: 10px;
+
+      svg {
+        fill: grey;
+      }
+    }
+  }
+}
+
+// project overlay
+.project-overlay {
+  @include box-overlay();
+  background-color: #fff;
+
+  &__list li {
+    @include task-item();
   }
 }
 

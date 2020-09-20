@@ -58,7 +58,7 @@ export const AddProject = ({shouldShow = false}) => {
           <span className="add-project__plus">+</span>
           <span
             data-testid="add-project-action"
-            className="add-rpoject__text"
+            className="add-project__text"
             onClick={() => setShow(!show)}>
             Add project
           </span>
