@@ -109,7 +109,7 @@ $generic-bg: #db4c3f;
 
 .darkmode {
   background-color: #282828;
-  .header {
+  header {
     box-shadow: 0px 1px 3px 0 rgba(0, 0, 0, 0.15);
     background-color: #282828;
     border-color: transparent;
@@ -122,7 +122,7 @@ $generic-bg: #db4c3f;
 
 // header
 
-.header {
+header {
   position: fixed;
   top: 0;
   width: 100%;
@@ -453,6 +453,7 @@ $generic-bg: #db4c3f;
     left: 0;
     width: 100%;
     height: 100%;
+    height: calc(100vh);
     margin: 0 auto;
     z-index: 1000;
     transition: opacity 250ms ease;
@@ -472,7 +473,7 @@ $generic-bg: #db4c3f;
 
     .header {
       float: left;
-      font-size: 0.78rem;
+      font-size: 0.9rem;
       margin-bottom: 20px;
     }
   }
@@ -483,9 +484,7 @@ $generic-bg: #db4c3f;
     margin-top: 10px;
     cursor: pointer;
   }
-  &__main {
-    position: relative;
-  }
+
 
   &__project, &__date {
     float: right;
@@ -516,7 +515,7 @@ $generic-bg: #db4c3f;
   }
 
   &__submit {
-    @include btn(90px);
+    @include btn('90px');
   }
 }
 
@@ -591,7 +590,7 @@ $generic-bg: #db4c3f;
   }
 
   &__submit {
-    @include btn(100px);
+    @include btn('100px');
   }
 
   &__cancel {
